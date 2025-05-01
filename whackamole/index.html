@@ -1,51 +1,17 @@
 <!doctype html>
 <html>
 <head>
-    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no' />
+    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover' />
     <meta charset='utf-8'>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="manifest" href="manifest.json">
     <style></style>
-    <title>Whack-a-Mole</title>
-    <script src="OSRestrictionFiles/ua-parser.js"> </script>
+    <title>Whack-A-Mole</title>
     <script src="playcanvas-stable.min.js"></script>
     <script src="__settings__.js"></script>
 </head>
 <body>
-        <script> 
-
-        //parse out operating system name and version. version turns into int up to 99.
-        var parser = new UAParser();
-        var osName = parser.getOS().name;
-        var osVersion = parser.getOS().version;
-        console.log(osName);
-        console.log(osVersion);
-        if(osVersion.charAt(1) === "."){
-            osVersion = osVersion.charAt(0);
-        }
-        else{
-            osVersion = osVersion.charAt(0).concat(osVersion.charAt(1));
-        }
-        osVersion = parseInt(osVersion, 10);
-
-        //if it is an apple phone below iOS 10, go to a different page
-        if((osName === 'iOS') && (osVersion < 10)){
-            window.location.href = "OSRestrictionFiles/coupon.html";
-        }
-        //else attach the playcanvas scripts like normal and proceeed with the game
-        else{
-
-            var start = document.createElement("script");
-            start.src = "__start__.js";
-            start.async = false;
-            var loading = document.createElement("script");
-            loading.async = false;
-            loading.src = "__loading__.js";
-
-            document.body.appendChild(start);
-            document.body.appendChild(loading);
-        }
-
-    </script>
+    <script src="__start__.js"></script>
+    <script src="__loading__.js"></script>
 </body>
 </html>
